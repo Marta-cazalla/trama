@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRAMA ESTUDIO</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <style>
+    /* Responsive */
+@media (max-width: 868px) {
+    .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+}
+    /* Responsive */
+@media (min-width: 869px) {
+    .swiper {
+      width: 100%;
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+    }
+
+    .swiper-slide {
+      width: auto;
+      margin-right: 20px;
+      height: 85vh;
+    }
+
+    .swiper-slide img,
+    .swiper-slide video {
+      max-height: 85vh;
+      display: block;
+      height: 100%;
+    }
+}
+  </style>
+
+  <header class="main-header">
+    <div class="logo-line">
+      <a href="index.html" class="logo" id="logo">TRAMA.</a>
+      <span class="sub-logo">Art direction + Set design</span>
+    </div>
+
+    <nav>
+      <div class="work-menu">
+        <div class="work-hover-area">
+          <span class="work-toggle">+ WORK</span>
+          <div class="work-flyout">
+            <div class="work-categories">
+              <a href="#" data-category="all">WORK</a>
+              <a href="#" data-category="personal">PERSONAL</a>
+              <a href="#" data-category="food">FOOD STYLING</a>
+              <a href="#" data-category="music">MUSIC VIDEO</a>
+              <a href="#" data-category="editorial">EDITORIAL</a>
+              <a href="#" data-category="commercial">COMMERCIAL</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-group hide-on-mobile">
+        <a href="mailto:formaestudio@gmail.com">MAIL</a>
+        <a>/</a>
+        <a href="https://instagram.com/forma.estudio" target="_blank">@IG</a>
+      </div>
+
+      <div class="about-link">
+        <span class="info-toggle"><a href="about.html">INFO</a></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="swiper home-gallery">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-category="editorial"><a href="proyecto1.html"><img src="img/proyecto1.jpg" alt="Proyecto 1"></a></div>
+      <div class="swiper-slide" data-category="food"><a href="proyecto2.html"><img src="img/proyecto2.jpg" alt="Proyecto 2"></a></div>
+      <div class="swiper-slide" data-category="commercial"><a href="proyecto3.html"><img src="img/proyecto3.jpg" alt="Proyecto 3"></a></div>
+      <div class="swiper-slide video-link" data-category="commercial">
+        <a href="proyecto4.html">
+          <video autoplay muted loop playsinline class="gallery-video">
+            <source src="img/proyecto4.mp4" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+      <div class="swiper-slide" data-category="personal"><a href="proyecto5.html"><img src="img/proyecto5.jpg" alt="Proyecto 5"></a></div>
+      <div class="swiper-slide" data-category="food"><a href="proyecto6.html"><img src="img/proyecto6.jpg" alt="Proyecto 6"></a></div>
+      <div class="swiper-slide" data-category="editorial"><a href="proyecto7.html"><img src="img/proyecto7.jpg" alt="Proyecto 7"></a></div>
+      <div class="swiper-slide" data-category="personal"><a href="proyecto8.html"><img src="img/proyecto8.jpg" alt="Proyecto 8"></a></div>
+      <div class="swiper-slide video-link" data-category="music">
+        <a href="proyecto9.html">
+          <video autoplay muted loop playsinline class="gallery-video">
+            <source src="img/proyecto9.mp4" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+      <div class="swiper-slide" data-category="personal"><a href="proyecto10.html"><img src="img/proyecto10.jpg" alt="Proyecto 10"></a></div>
+      <div class="swiper-slide" data-category="personal"><a href="proyecto11.html"><img src="img/proyecto11.jpg" alt="Proyecto 11"></a></div>
+      <div class="swiper-slide video-link" data-category="music">
+        <a href="proyecto12.html">
+          <video autoplay muted loop playsinline class="gallery-video">
+            <source src="img/proyecto12.mp4" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+      <div class="swiper-slide" data-category="editorial"><a href="proyecto13.html"><img src="img/proyecto13.jpg" alt="Proyecto 13"></a></div>
+      <div class="swiper-slide" data-category="editorial"><a href="proyecto14.html"><img src="img/proyecto14.jpg" alt="Proyecto 14"></a></div>
+      <div class="swiper-slide video-link" data-category="music">
+        <a href="proyecto15.html">
+          <video autoplay muted loop playsinline class="gallery-video">
+            <source src="img/proyecto15.mp4" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+      <div class="swiper-slide" data-category="personal"><a href="proyecto16.html"><img src="img/proyecto16.jpg" alt="Proyecto 16"></a></div>
+      <div class="swiper-slide" data-category="commercial"><a href="proyecto17.html"><img src="img/proyecto17.jpg" alt="Proyecto 17"></a></div>
+      <div class="swiper-slide" data-category="commercial"><a href="proyecto18.html"><img src="img/proyecto18.jpg" alt="Proyecto 18"></a></div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth > 768) {
+      const swiper = new Swiper('.swiper.home-gallery', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        freeMode: true,
+        grabCursor: true,
+        mousewheel: true
+      });
+    }
+  });
+</script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.work-categories a');
+      const slides = document.querySelectorAll('.swiper-slide');
+      const logo = document.getElementById('logo');
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const category = link.getAttribute('data-category');
+
+          slides.forEach(slide => {
+            const itemCategory = slide.getAttribute('data-category');
+            slide.style.display = (category === 'all' || itemCategory === category) ? 'block' : 'none';
+          });
+
+          swiper.update(); // Actualiza Swiper después del filtrado
+        });
+      });
+
+      logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        slides.forEach(slide => slide.style.display = 'block');
+        swiper.update();
+      });
+    });
+  </script>
+
+  <script>
+    function updateWorkTextForMobile() {
+      const isMobile = window.innerWidth <= 768;
+      const workCategoryLink = document.querySelector('.work-categories a[data-category="all"]');
+
+      if (workCategoryLink) {
+        workCategoryLink.textContent = isMobile ? 'ALL' : 'WORK';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateWorkTextForMobile);
+    window.addEventListener("resize", updateWorkTextForMobile);
+  </script>
+
+</body>
+</html>

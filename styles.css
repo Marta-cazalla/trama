@@ -1,0 +1,723 @@
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: white;
+  color: black;
+}
+
+/* --------------------- */
+/* HEADER GENERAL */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+
+.sub-logo {
+  font-size: 10px;
+  color: rgb(88, 88, 88);
+  margin-left: 10px;
+
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.contact-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a,
+.back-link {
+  text-decoration: none;
+  color: rgb(88, 88, 88);
+  font-size: 10px;
+}
+
+.hide-on-mobile {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+/* --------------------- */
+/* HOME - Galería principal */
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  padding: 5px 25px;
+  box-sizing: border-box;
+  height: calc(100vh - 100px);
+}
+
+.horizontal-scroll a {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: block;
+}
+
+.horizontal-scroll img {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.horizontal-scroll img:hover {
+  opacity: 0.6;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll {
+  scrollbar-width: none;
+}
+
+/* --------------------- */
+/* Filtros WORK */
+/* WORK MENU */
+.work-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.work-hover-area {
+  position: relative;
+  display: inline-block;
+  z-index: 1; /* Asegura que esté por encima del contenido */
+}
+
+.work-hover-area::before {
+  content: "";
+  position: absolute;
+  top: -5px;     /* extiende hacia arriba */
+  bottom: -50px;  /* extiende hacia abajo */
+  left: -15px;    /* opcional: hacia la izquierda */
+  right: -15px;   /* opcional: hacia la derecha */
+  z-index: -1;    /* no afecta al diseño visible */
+}
+
+.work-toggle {
+  font-size: 10px;
+  color: rgb(88, 88, 88);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  
+}
+
+
+/* Contenedor que incluye las categorías */
+.work-flyout {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+}
+.work-flyout::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  z-index: 1;
+}
+
+/* Mostrar flyout al hacer hover */
+.work-hover-area:hover .work-flyout {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Categorías individuales */
+.work-categories {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  white-space: nowrap;
+  background: white;
+  z-index: 10;
+}
+
+.work-categories a {
+  font-size: 10px;
+  color: rgb(88, 88, 88);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.work-categories a:hover {
+  opacity: 0.5;
+}
+
+/* --------------------- */
+
+/* ABOUT */
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 25px;
+  font-family: sans-serif;
+}
+
+
+.site-title {
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 14px;
+  color: grey;
+  text-decoration: none;
+}
+
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 25px;
+  box-sizing: border-box;
+}
+
+.about-content {
+  max-width: 900px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 310;
+  line-height: 1.8;
+  color: rgb(75, 75, 75);
+}
+
+.about-content a {
+  color: black;
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  text-decoration: underline;
+
+}
+
+.label {
+  color: gray;
+  font-size: 9px;
+  margin-left: 90px;
+
+}
+
+.about-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: -10px;
+}
+
+.about-label {
+  min-width: 85px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+
+/* --------------------- */
+/* PROYECTO – Página individual */
+.proyecto-header {
+  padding: 20px 25px;
+}
+
+.project-content {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.credits {
+  width: 35%;
+  padding: 25px;
+  box-sizing: border-box;
+  margin-top: -25px;
+  font-size: 0.55rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 30px;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 35px;
+  font-family: sans-serif;
+  max-width: 400px;
+}
+
+.credit-label {
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: rgb(88, 88, 88);
+}
+
+.credit-info {
+  font-size: 0.70rem;
+  font-weight: 400;
+  color: #000;
+}
+
+.credit-info em {
+  font-style: normal;
+}
+
+.project-gallery {
+  width: 73%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+
+.scroll-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  padding-left: 0;
+  margin-top: 20px;
+  align-items: center; 
+}
+
+.scroll-gallery img {
+  flex: 0 0 auto;
+  max-height: 85vh;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  scroll-snap-align: start;
+}
+
+.scroll-gallery video {
+  flex: 0 0 50%;
+  height: 85vh;
+  object-fit: cover;
+  scroll-snap-align: start;
+  
+}
+
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+}
+
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;  
+  width: 126%;
+  background: transparent; /* sin fondo visible */
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8em 27vw; /* ajusta según el margen lateral de tus imágenes */
+  z-index: 10;
+  pointer-events: none; /* permite hacer scroll debajo si se superpone */
+}
+
+.fixed-footer .nav-link {
+  color: black;
+  text-decoration: none;
+  font-size: 0.65em;
+  pointer-events: auto; /* vuelve a activar interacción sólo para los enlaces */
+}
+
+/* Créditos en columna única */
+.credits-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  font-size: 1.2em;
+  margin-top: 0em;
+}
+
+.credits-block p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.gallery-video {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.video-link {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: block;
+}
+
+.gallery-video:hover {
+  opacity: 0.6;
+}
+
+/* --------------------- */
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .contact-link {
+    display: none;
+  }
+  .black-link {
+    display: none;
+  }
+
+  .about-content,
+  .about-row,
+  .about-text {
+    text-align: left !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  .about-text {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 18px
+  }
+
+  .about-row {
+    display: block !important;
+  }
+
+  .about-content p {
+    text-align: left;
+    font-size: 0.9rem; /* Ajusta según necesidad */
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .about-content p a {
+    color: inherit;
+    text-decoration: none;
+  }
+  nav a {
+    font-size: 13px;
+  }
+
+  .horizontal-scroll {
+    padding: 15px 20px;
+    gap: 8px;
+    height: 100vh;
+  }
+
+  .horizontal-scroll img {
+    height: 90%;
+  }
+
+  .project-content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .credits {
+    width: 100%;
+    padding: 20px;
+    margin-top: 5px;
+  }
+
+  .project-gallery {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .scroll-gallery {
+    padding-left: 0;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .scroll-gallery img,
+  .scroll-gallery video {
+    flex: 0 0 90%;
+    max-height: 60vh;
+  }
+
+  .about-content {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .work-categories {
+    top: auto;
+    left: 0;
+    transform: none;
+    position: static;
+    display: none;
+  }
+
+  .work-menu:hover .work-categories {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .work-categories {
+    flex-direction: column;
+    gap: 12px; 
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transform: none;
+    background-color: rgb(255, 255, 255); /* gris muy claro */
+    z-index: 10;
+    border-radius: 2px;
+    overflow: hidden;
+    padding: 10px; /* Aumenta el espacio interior */
+  }
+
+  .work-categories a {
+    color: rgb(88, 88, 88);
+  }
+  .work-flyout {
+    right: 50px; /* en lugar de 0, mueve 10px hacia la izquierda */
+  }
+  
+  @media (max-width: 768px) {
+    .fixed-footer {
+      position: static !important;
+      display: flex;
+      justify-content: space-between; /* usa 'center' si quieres alinearlos más juntos */
+      gap: 0px; /* Aumenta o reduce esta cantidad para más/menos separación */
+      padding: 20px 20px; /* Ajusta esto para más separación con los lados */
+      margin-top: -30px; /* Aumenta esta cantidad para más espacio con la última imagen */
+      box-sizing: border-box;
+      width: 100%;
+      background: none;
+      margin-top: 3rem;
+    }
+  
+    .fixed-footer .nav-link {
+      font-size: 10px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-gallery {
+      display: block !important; /* anula el display: flex */
+      overflow-x: visible !important;
+      height: auto !important;
+      scroll-snap-type: none !important;
+      padding: 0 20px !important;
+    }
+   
+    .home-gallery img,
+    .home-gallery video {
+      width: 100% !important;
+      height: auto !important;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+   }
+   @media (max-width: 768px) {
+    .scroll-gallery {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      overflow: visible;
+      align-items: center;
+    }
+    }
+  
+    .scroll-gallery img,
+    .scroll-gallery video {
+      width: 100% !important;
+      height: auto !important;
+      margin-bottom: 5px;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .scroll-gallery::after {
+        content: '';
+        display: block;
+        height: 5px;
+        width: 100%;
+      }
+    }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor de imágenes en la home */
+.horizontal-scroll {
+  display: flex;
+  gap: 10px;  /* controla aquí el espaciado */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 5px 25px;
+  box-sizing: border-box;
+  height: calc(100vh - 100px);
+}
+
+/* Imagen o video en el contenedor */
+.horizontal-scroll a,
+.horizontal-scroll a video,
+.horizontal-scroll a img {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Efecto hover opcional */
+.horizontal-scroll a img:hover,
+.horizontal-scroll a video:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultar scrollbar en todos los navegadores */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll {
+  scrollbar-width: none;  /* para Firefox */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .horizontal-scroll {
+    padding: 15px 20px;
+    gap: 8px;
+    height: 100vh;
+  }
+
+  .horizontal-scroll a,
+  .horizontal-scroll a video,
+  .horizontal-scroll a img {
+    height: 95%;
+  } 
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinea verticalmente todo el contenido del header */
+  padding: 12px 20px;
+}
+
+.logo-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sub-logo {
+  font-size: 10px;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center; /* Asegura alineación vertical */
+  gap: 20px;
+}
+
+.work-menu,
+.about-link {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.work-toggle,
+.about-link a {
+  font-size: 9px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: rgb(88, 88, 88);
+}
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
