@@ -128,11 +128,16 @@
   </div>
 
   <!-- Swiper JS -->
+  <script>
+  // variable global para poder chequearla después
+  let swiper = null;
+</script>
+  
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth > 768) {
-      const swiper = new Swiper('.swiper.home-gallery', {
+      swiper = new Swiper('.swiper.home-gallery', {
         slidesPerView: 'auto',
         spaceBetween: 20,
         freeMode: true,
@@ -144,33 +149,40 @@
 </script>
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.work-categories a');
-      const slides = document.querySelectorAll('.swiper-slide');
-      const logo = document.getElementById('logo');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.work-categories a');
+    const slides = document.querySelectorAll('.swiper-slide');
+    const logo = document.getElementById('logo');
 
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const category = link.getAttribute('data-category');
-
-          slides.forEach(slide => {
-            const itemCategory = slide.getAttribute('data-category');
-            slide.style.display = (category === 'all' || itemCategory === category) ? 'block' : 'none';
-          });
-
-          swiper.update(); // Actualiza Swiper después del filtrado
-        });
-      });
-
-      logo.addEventListener('click', (e) => {
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
         e.preventDefault();
-        slides.forEach(slide => slide.style.display = 'block');
-        swiper.update();
+        const category = link.getAttribute('data-category');
+
+        slides.forEach(slide => {
+          const itemCategory = slide.getAttribute('data-category');
+          slide.style.display = (category === 'all' || itemCategory === category) ? 'block' : 'none';
+        });
+
+        // Solo actualiza Swiper si existe (desktop)
+        if (swiper && typeof swiper.update === 'function') {
+          swiper.update();
+        }
       });
     });
-  </script>
+
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      slides.forEach(slide => slide.style.display = 'block');
+
+      // Solo actualiza Swiper si existe (desktop)
+      if (swiper && typeof swiper.update === 'function') {
+        swiper.update();
+      }
+    });
+  });
+</script>
 
   <script>
     function updateWorkTextForMobile() {
@@ -191,6 +203,45 @@
     const workToggle
 
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('.work-menu');
+    const toggle = document.querySelector('.work-toggle');
+    const categories = document.querySelector('.work-categories');
+
+    if (!menu || !toggle || !categories) return;
+
+    // Abrir/cerrar con tap SOLO en móvil
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        menu.classList.toggle('open');
+      }
+    });
+
+    // Cerrar al elegir una categoría (móvil)
+    categories.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && e.target.matches('a')) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // Cerrar al tocar fuera (móvil)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // Asegura estado correcto al rotar / cambiar tamaño
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        menu.classList.remove('open');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
